@@ -6,17 +6,17 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 22:54:32 by dyunta            #+#    #+#             */
-/*   Updated: 2023/09/22 19:34:03 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/09/22 22:34:06 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/ft_printf.h"
+#include <stdio.h>
 
-int	main(char argc, char *argv[])
+int	main(int argc, char *argv[])
 {
-	while (argc > 0)
+	while (argc-- > 0)
 	{
-		ft_printf("%s\n", argv[argc--]);
+		printf("%s\n %d\n", argv[argc], argc);
 	}
 	return (0);
 }
