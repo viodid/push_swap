@@ -1,3 +1,6 @@
+
+
+
 all: main.o lib.a
 	gcc -Wall -Wextra -Werror -o push_swap main.o lib.a
 
