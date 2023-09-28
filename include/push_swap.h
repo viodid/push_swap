@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 00:04:20 by dyunta            #+#    #+#             */
-/*   Updated: 2023/09/25 22:41:30 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/09/28 22:52:01 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-size_t	ft_strlen(const char *s)
-{
-	int	i;
+# include <stdarg.h>
+# include <limits.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include <unistd.h>
 
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
-}
+size_t	ft_putstr(const char *s);
+size_t	ft_strlen(const char *s);
+long	ft_strtol(const char *s);
+
+#endif

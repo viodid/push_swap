@@ -6,18 +6,20 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 22:54:32 by dyunta            #+#    #+#             */
-/*   Updated: 2023/09/25 23:13:16 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/09/28 21:23:33 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "include/ft_printf.h"
+#include <push_swap.h>
 
 int	main(int argc, char *argv[])
 {
+	if (check_arguments(argc, argv))
+		return (1);
 	while (argc-- > 0)
 	{
-		printf("%s - %ld - %d\n", argv[argc], ft_strlen(argv[argc]), CONST + 1);
+		printf("%s\n", argv[argc]);
 	}
 	return (0);
 }

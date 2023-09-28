@@ -1,12 +1,12 @@
-BINARY=push_swap
-CODEDIRS=. lib src
-INCDIR=./include/
+BINARY=test
+CODEDIRS=../lib ../tests
+INCDIR=../include/
 
 CC=gcc
-OPT=-O0
+OPT=-Og
 # https://stackoverflow.com/questions/8025766/makefile-auto-dependency-generation
 DEPFLAGS=-MP -MD
-CFLAGS=-Wall -Wextra -Werror -I$(INCDIR) $(OPT) $(DEPFLAGS)
+CFLAGS=-I$(INCDIR) $(OPT) $(DEPFLAGS)
 
 CFILES=$(foreach dir, $(CODEDIRS), $(wildcard $(dir)/*.c))
 OBJETCS=$(patsubst %.c, %.o, $(CFILES))
@@ -28,11 +28,6 @@ fclean: clean
 	rm -f $(BINARY)
 
 re: fclean all
-
-diff:
-	$(info The status of the repository, and the volume of per-file changes:)
-	@git status
-	@git --no-pager diff --stat
 
 print:
 	@echo $(CFILES)
