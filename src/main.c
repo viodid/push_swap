@@ -6,7 +6,7 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 22:54:32 by dyunta            #+#    #+#             */
-/*   Updated: 2023/09/28 21:23:33 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/10/02 19:51:01 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int	main(int argc, char *argv[])
 {
-	if (check_arguments(argc, argv))
+	if (check_arg(argc, argv))
 		return (1);
 	while (argc-- > 0)
 	{

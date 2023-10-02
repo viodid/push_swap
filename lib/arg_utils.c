@@ -6,15 +6,15 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 20:47:39 by dyunta            #+#    #+#             */
-/*   Updated: 2023/09/28 23:36:53 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/10/02 20:28:58 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
 /*
-	Takes a pointer to the start of str wtith numbers and outputs the number
-	as long, or -1 if a char is not a number.
+	Takes a pointer to the start of a str populated  with numbers and outputs
+	the number as a long integer, or -1 if any char is not a number.
 	It sets the errno to ERANGE when the number is larger than LONG_MAX. 
 */
 long	ft_strtol(const char *s)
@@ -56,7 +56,7 @@ int	check_arg(int argc, char *argv[])
 	{
 		return (1);
 	}
-	while (argc-- >= 0)
+	while (--argc > 0)
 	{
 		if (errno == ERANGE || ft_strtol(argv[argc]) == -1)
 			return (1);

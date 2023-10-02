@@ -6,7 +6,7 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 00:04:20 by dyunta            #+#    #+#             */
-/*   Updated: 2023/09/28 23:21:56 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/10/02 19:44:31 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@
 size_t	ft_putstr(const char *s);
 size_t	ft_strlen(const char *s);
 long	ft_strtol(const char *s);
+int		check_arg(int argc, char *argv[]);
 
 #endif
