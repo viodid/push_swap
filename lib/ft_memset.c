@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/21 00:04:20 by dyunta            #+#    #+#             */
-/*   Updated: 2023/10/03 19:06:42 by dyunta           ###   ########.fr       */
+/*   Created: 2023/02/08 00:04:15 by dyunta            #+#    #+#             */
+/*   Updated: 2023/02/08 00:04:15 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <limits.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <unistd.h>
-# include <errno.h>
+void	*ft_memset(void *b, int c, size_t len)
+{
+	unsigned char	*ptr;
 
-int		ft_strtol(const char *s);
-int		check_arg(int argc, char *argv[]);
-
-#endif
+	ptr = (unsigned char *)b;
+	while (len--)
+		*ptr++ = (unsigned char)c;
+	return (b);
+}

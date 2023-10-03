@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/21 00:04:20 by dyunta            #+#    #+#             */
-/*   Updated: 2023/10/03 19:06:42 by dyunta           ###   ########.fr       */
+/*   Created: 2023/02/08 00:04:15 by dyunta            #+#    #+#             */
+/*   Updated: 2023/02/08 00:04:15 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <limits.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <unistd.h>
-# include <errno.h>
+void	*ft_memcpy(void *dst, const void *src, size_t n)
+{
+	unsigned char	*ptr;
 
-int		ft_strtol(const char *s);
-int		check_arg(int argc, char *argv[]);
-
-#endif
+	ptr = (unsigned char *)dst;
+	while (n--)
+	{
+		if (!dst && !src)
+			return (dst);
+		*ptr++ = *(unsigned char *)src++;
+	}
+	return (dst);
+}

@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/21 00:04:20 by dyunta            #+#    #+#             */
-/*   Updated: 2023/10/03 19:06:42 by dyunta           ###   ########.fr       */
+/*   Created: 2023/01/10 16:50:49 by dyunta            #+#    #+#             */
+/*   Updated: 2023/10/03 19:35:21 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include <libft.h>
 
-# include <stdarg.h>
-# include <limits.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <unistd.h>
-# include <errno.h>
+/* Counts the number of nodes in a list. */
+int	ft_lstsize(t_list *lst)
+{
+	int	i;
 
-int		ft_strtol(const char *s);
-int		check_arg(int argc, char *argv[]);
-
-#endif
+	i = 0;
+	while (lst)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
+}

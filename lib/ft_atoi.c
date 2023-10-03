@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/21 22:54:32 by dyunta            #+#    #+#             */
-/*   Updated: 2023/10/03 19:10:39 by dyunta           ###   ########.fr       */
+/*   Created: 2023/02/08 00:04:15 by dyunta            #+#    #+#             */
+/*   Updated: 2023/02/08 00:04:15 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <push_swap.h>
-#include <libft.h>
-
-// TODO: check if args are repeated
-int	main(int argc, char *argv[])
+int	ft_atoi(const char *nptr)
 {
-	if (argc <= 1)
-		return (1);
-	if (check_arg(argc, argv))
+	int	i;
+	int	sign;
+	int	res;
+
+	i = 0;
+	sign = 1;
+	res = 0;
+	while (nptr[i] == ' ' || nptr[i] == '\t' || nptr[i] == '\n'
+		|| nptr[i] == '\v' || nptr[i] == '\f' || nptr[i] == '\r')
+		i++;
+	if (nptr[i] == '-')
 	{
-		ft_putstr_fd("Error\n", 2);
-		return (1);
+		sign = -1;
+		i++;
 	}
-	while (argc-- > 0)
+	else if (nptr[i] == '+')
+		i++;
+	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
-		printf("%s\n", argv[argc]);
+		res = res * 10 + (int)nptr[i] - '0';
+		i++;
 	}
-	return (0);
+	return (res * sign);
 }

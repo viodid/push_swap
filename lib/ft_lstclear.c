@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/21 22:54:32 by dyunta            #+#    #+#             */
-/*   Updated: 2023/10/03 19:10:39 by dyunta           ###   ########.fr       */
+/*   Created: 2023/01/10 16:50:49 by dyunta            #+#    #+#             */
+/*   Updated: 2023/10/03 19:27:41 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <push_swap.h>
 #include <libft.h>
 
-// TODO: check if args are repeated
-int	main(int argc, char *argv[])
+/* Deletes and frees the given node and every
+successor of that node, using the function ’del’
+and free(3).
+Finally, the pointer to the list must be set to
+NULL. */
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	if (argc <= 1)
-		return (1);
-	if (check_arg(argc, argv))
+	t_list	*ptr;
+	t_list	*next;
+
+	if (!lst || !del)
+		return ;
+	ptr = *lst;
+	while (ptr)
 	{
-		ft_putstr_fd("Error\n", 2);
-		return (1);
+		next = ptr->next;
+		del(ptr->content);
+		free(ptr);
+		ptr = next;
 	}
-	while (argc-- > 0)
-	{
-		printf("%s\n", argv[argc]);
-	}
-	return (0);
+	*lst = NULL;
 }

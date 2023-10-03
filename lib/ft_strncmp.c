@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/21 00:04:20 by dyunta            #+#    #+#             */
-/*   Updated: 2023/10/03 19:06:42 by dyunta           ###   ########.fr       */
+/*   Created: 2023/02/08 00:04:15 by dyunta            #+#    #+#             */
+/*   Updated: 2023/02/08 00:04:15 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <limits.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <unistd.h>
-# include <errno.h>
+int	ft_strncmp(const char *s1, const char *s2, size_t len)
+{
+	size_t	i;
 
-int		ft_strtol(const char *s);
-int		check_arg(int argc, char *argv[]);
-
-#endif
+	i = 0;
+	while (s1[i] && s2[i] && i < len)
+	{
+		if (s1[i] != s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		i++;
+	}
+	if (i == len)
+		return (0);
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+}
