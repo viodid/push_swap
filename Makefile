@@ -4,7 +4,7 @@ INCDIR=./include/
 BIN_DIR=./bin/
 
 CC=gcc
-OPT=-O0
+OPT=-g
 # https://stackoverflow.com/questions/8025766/makefile-auto-dependency-generation
 DEPFLAGS=-MP -MD
 CFLAGS=-Wall -Wextra -Werror -I$(INCDIR) $(OPT) $(DEPFLAGS)
