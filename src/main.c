@@ -6,7 +6,7 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 22:54:32 by dyunta            #+#    #+#             */
-/*   Updated: 2023/10/03 19:10:39 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/10/05 19:50:13 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int argc, char *argv[])
 		return (1);
 	if (check_arg(argc, argv))
 	{
-		ft_putstr_fd("Error\n", 2);
+		ft_putendl_fd("Error", 2);
 		return (1);
 	}
 	while (argc-- > 0)
