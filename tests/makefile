@@ -1,6 +1,7 @@
 BINARY=test
 CODEDIRS=../lib ../tests
 INCDIR=../include/
+BIN_DIR=../bin/
 
 CC=gcc
 OPT=-Og
@@ -15,7 +16,7 @@ DEPFILES=$(patsubst %.c, %.d, $(CFILES))
 all: $(BINARY)
 
 $(BINARY): $(OBJETCS)
-	$(CC) $(CFLAGS) -o $@ $^
+	$(CC) $(CFLAGS) -o $(BIN_DIR)$@ $^
 
 # https://stackoverflow.com/questions/3220277/what-do-the-makefile-symbols-and-mean
 %.o: %.c
