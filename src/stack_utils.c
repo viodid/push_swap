@@ -6,13 +6,17 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 23:29:23 by dyunta            #+#    #+#             */
-/*   Updated: 2023/10/06 00:58:42 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/10/06 20:32:52 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 #include <push_swap.h>
 
+/*
+ * Takes the total length of the array inside t_stack and returns an initialized
+ * t_stack.
+ */
 t_stack	*create_stack(const int arg_len)
 {
 	t_stack	*stack_struct;
@@ -28,6 +32,11 @@ t_stack	*create_stack(const int arg_len)
 	return (stack_struct);
 }
 
+/*
+ * Populates and returns a t_stack type with the all the values of argv
+ * but the index 0, and set the index to the last and before last elements
+ * as top1 and top2 respectively.
+ */
 t_stack	*populate_stack(int argc, char *argv[], t_stack *stack_s)
 {
 	int	*stack;
@@ -35,8 +44,15 @@ t_stack	*populate_stack(int argc, char *argv[], t_stack *stack_s)
 
 	stack = (int *) stack_s->p;
 	i = 0;
-	// TODO: set top1 and top2 and use ft_strtol to get the hole number
 	while (--argc > 0)
-		stack[i++] = (int)*(argv[argc]) - '0';
+		stack[i++] = ft_strtol(argv[argc]);
+	if (i > 1)
+	{
+		stack_s->top1 = i - 1;
+		stack_s->top2 = i - 2;
+	}
+	else
+		stack_s->top1 = i - 1;
+
 	return (stack_s);
 }

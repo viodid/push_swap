@@ -4,7 +4,7 @@ INCDIR=./include/
 BIN_DIR=./bin/
 
 CC=gcc
-OPT=-g
+OPT=-g3
 # https://stackoverflow.com/questions/8025766/makefile-auto-dependency-generation
 DEPFLAGS=-MP -MD
 CFLAGS=-Wall -Wextra -Werror -I$(INCDIR) $(OPT) $(DEPFLAGS)
@@ -35,10 +35,6 @@ diff:
 	@git status
 	@git --no-pager diff --stat
 
-print:
-	@echo $(CFILES)
-	@echo $(OBJETCS)
-	@echo $(DEPFILES)
 
 # include the dependency files
 -include $(DEPFILES)

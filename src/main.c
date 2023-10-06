@@ -16,16 +16,16 @@
 // TODO: check if args are repeated
 int	main(int argc, char *argv[])
 {
-	t_stack	*stack_s;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
 
 	if (argc <= 1)
 		return (1);
 	if (check_arg(argc, argv))
 		return (1);
-	stack_s = populate_stack(argc, argv, create_stack(argc - 1));
+	stack_a = populate_stack(argc, argv, create_stack(argc - 1));
+	stack_b = create_stack(argc - 1);
 	while (--argc > 0)
-	{
-		printf("index: %d\n%d\n", argc, stack_s->p[argc]);
-	}
+		printf("index: %d\n%d\n", argc - 1, stack_a->p[argc - 1]);
 	return (0);
 }
