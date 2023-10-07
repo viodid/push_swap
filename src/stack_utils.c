@@ -14,8 +14,7 @@
 #include <push_swap.h>
 
 /*
- * Takes the total length of the array inside t_stack and returns an initialized
- * t_stack.
+ * Returns an initialized t_stack with len(t_stack->p) = arg_len.
  */
 t_stack	*create_stack(const int arg_len)
 {
@@ -53,6 +52,5 @@ t_stack	*populate_stack(int argc, char *argv[], t_stack *stack_s)
 	}
 	else
 		stack_s->top1 = i - 1;
-
 	return (stack_s);
 }

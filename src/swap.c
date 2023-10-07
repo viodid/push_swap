@@ -1,0 +1,38 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   swap.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/07 01:14:27 by dyunta            #+#    #+#             */
+/*   Updated: 2023/10/07 02:54:29 by dyunta           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../include/push_swap.h"
+
+/*
+ * Swap the first 2 elements at the top of stack passed as argument.
+ * Do nothing if there is only one or no elements.
+ */
+void	swap(t_stack *stack)
+{
+	int	tmp;
+
+	if (stack->top2 == -1)
+		return ;
+	tmp = stack->p[stack->top1];
+	stack->p[stack->top1] = stack->p[stack->top2];
+	stack->p[stack->top2] = tmp;
+}
+
+/*
+ * Swap the first 2 elements at the top of both stacks.
+ * Only swaps when there is at least 2 elements.
+ */
+void	double_swap(t_stack *stack1, t_stack *stack2)
+{
+	swap(stack1);
+	swap(stack2);
+}
