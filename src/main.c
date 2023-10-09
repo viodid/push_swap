@@ -6,7 +6,7 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 22:54:32 by dyunta            #+#    #+#             */
-/*   Updated: 2023/10/07 02:29:19 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/10/09 21:43:11 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,26 @@ int	main(int argc, char *argv[])
 		return (1);
 	stack_a = populate_stack(argc, argv, create_stack(argc - 1));
 	stack_b = create_stack(argc - 1);
-	swap(stack_a);
-	push(stack_a, stack_b);
-	swap(stack_b);
-	push(stack_a, stack_b);
-	swap(stack_b);
+//	swap(stack_a);
+//	push(stack_a, stack_b);
+//	swap(stack_b);
+//	push(stack_a, stack_b);
+	swap(stack_b, "sb");
+	reverse_rotate(stack_a, "rra");
+	reverse_rotate(stack_a, "rra");
+	push(stack_a, stack_b, "pb");
+	push(stack_a, stack_b, "pb");
+	double_reverse_rotate(stack_a, stack_b);
+	double_rotate(stack_a, stack_b);
+	double_swap(stack_a, stack_b);
+
 	printf("Stack A\n");
-	while (--argc > 0)
-		printf("index: %d\n%d\n", argc - 1, stack_a->p[argc - 1]);
+	int i = argc;
+	while (--i > 0)
+		printf("index: %d\n%d\n", i - 1, stack_a->p[i - 1]);
 	printf("Stack B\n");
-	while (--argc > 0)
-		printf("index: %d\n%d\n", argc - 1, stack_b->p[argc - 1]);
+	i = argc;
+	while (--i > 0)
+		printf("index: %d\n%d\n", i - 1, stack_b->p[i - 1]);
 	return (0);
 }

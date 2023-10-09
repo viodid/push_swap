@@ -6,7 +6,7 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 00:04:20 by dyunta            #+#    #+#             */
-/*   Updated: 2023/10/07 03:15:23 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/10/09 21:42:10 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ int		ft_strtol(const char *s);
 int		check_arg(int argc, char *argv[]);
 t_stack	*populate_stack(int argc, char *argv[], t_stack *stack_s);
 t_stack	*create_stack(const int arg_len);
-void	swap(t_stack *stack);
+void	swap(t_stack *stack, char *name);
 void	double_swap(t_stack *stack_A, t_stack *stack_B);
-void	push(t_stack *stack_src, t_stack *stack_dst);
-void	rotate(t_stack *stack, char *operation);
+void	push(t_stack *stack_src, t_stack *stack_dst, char *name);
+void	rotate(t_stack *stack, char *name);
 void	double_rotate(t_stack *stack1, t_stack *stack2);
-void	reverse_rotate(t_stack *stack, char *operation);
+void	reverse_rotate(t_stack *stack, char *name);
 void	double_reverse_rotate(t_stack *stack1, t_stack *stack2);
 
 #endif

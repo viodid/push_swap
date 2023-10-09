@@ -6,14 +6,14 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 01:08:47 by dyunta            #+#    #+#             */
-/*   Updated: 2023/10/07 03:15:17 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/10/09 21:37:57 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 #include "../include/libft.h"
 
-void	rotate(t_stack *stack, char *operation)
+void	rotate(t_stack *stack, char *name)
 {
 	int	i;
 	int	top_element;
@@ -26,16 +26,18 @@ void	rotate(t_stack *stack, char *operation)
 		i--;
 	}
 	stack->p[0] = top_element;
-	ft_putendl_fd(operation, 1);
+	if (*name)
+		ft_putendl_fd(name, 1);
 }
 
 void	double_rotate(t_stack *stack1, t_stack *stack2)
 {
-	rotate(stack1, "ra");
-	rotate(stack2, "rb");
+	rotate(stack1, "");
+	rotate(stack2, "");
+	ft_putendl_fd("rr", 1);
 }
 
-void	reverse_rotate(t_stack *stack, char *operation)
+void	reverse_rotate(t_stack *stack, char *name)
 {
 	int	i;
 	int	lower_element;
@@ -48,11 +50,13 @@ void	reverse_rotate(t_stack *stack, char *operation)
 		i++;
 	}
 	stack->p[stack->top1] = lower_element;
-	ft_putendl_fd(operation, 1);
+	if (*name)
+		ft_putendl_fd(name, 1);
 }
 
 void	double_reverse_rotate(t_stack *stack1, t_stack *stack2)
 {
-	reverse_rotate(stack1, "rra");
-	reverse_rotate(stack2, "rrb");
+	reverse_rotate(stack1, "");
+	reverse_rotate(stack2, "");
+	ft_putendl_fd("rrr", 1);
 }
