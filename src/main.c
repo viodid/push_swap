@@ -6,12 +6,11 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 22:54:32 by dyunta            #+#    #+#             */
-/*   Updated: 2023/10/09 21:43:11 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/10/09 21:49:45 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
-#include <libft.h>
 
 // TODO: check if args are repeated
 int	main(int argc, char *argv[])
@@ -46,5 +45,9 @@ int	main(int argc, char *argv[])
 	i = argc;
 	while (--i > 0)
 		printf("index: %d\n%d\n", i - 1, stack_b->p[i - 1]);
+	free(stack_a->p);
+	free(stack_b->p);
+	free(stack_a);
+	free(stack_b);
 	return (0);
 }
