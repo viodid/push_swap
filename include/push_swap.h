@@ -6,7 +6,7 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 00:04:20 by dyunta            #+#    #+#             */
-/*   Updated: 2023/10/09 21:42:10 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/10/11 18:49:13 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ void	rotate(t_stack *stack, char *name);
 void	double_rotate(t_stack *stack1, t_stack *stack2);
 void	reverse_rotate(t_stack *stack, char *name);
 void	double_reverse_rotate(t_stack *stack1, t_stack *stack2);
+int		phase1(t_stack *stack_A, t_stack *stack_B);
 
 #endif

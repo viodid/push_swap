@@ -28,14 +28,15 @@ int	main(int argc, char *argv[])
 //	push(stack_a, stack_b);
 //	swap(stack_b);
 //	push(stack_a, stack_b);
-	swap(stack_b, "sb");
-	reverse_rotate(stack_a, "rra");
-	reverse_rotate(stack_a, "rra");
-	push(stack_a, stack_b, "pb");
-	push(stack_a, stack_b, "pb");
-	double_reverse_rotate(stack_a, stack_b);
-	double_rotate(stack_a, stack_b);
-	double_swap(stack_a, stack_b);
+//	swap(stack_b, "sb");
+//	reverse_rotate(stack_a, "rra");
+//	reverse_rotate(stack_a, "rra");
+//	push(stack_a, stack_b, "pb");
+//	push(stack_a, stack_b, "pb");
+//	double_reverse_rotate(stack_a, stack_b);
+//	double_rotate(stack_a, stack_b);
+//	double_swap(stack_a, stack_b);
+	phase1(stack_a, stack_b);
 
 	printf("Stack A\n");
 	int i = argc;
