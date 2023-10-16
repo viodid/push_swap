@@ -6,7 +6,7 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 22:54:32 by dyunta            #+#    #+#             */
-/*   Updated: 2023/10/09 21:49:45 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/10/16 22:01:18 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,12 @@ int	main(int argc, char *argv[])
 //	double_reverse_rotate(stack_a, stack_b);
 //	double_rotate(stack_a, stack_b);
 //	double_swap(stack_a, stack_b);
-	phase1(stack_a, stack_b);
+	// FIXME: Everything works until stack_a is sorted and the check fails
+	while (check_if_sorted(stack_a))
+	{
+		phase1(stack_a, stack_b);
+		phase2(stack_a, stack_b);
+	}
 
 	printf("Stack A\n");
 	int i = argc;
