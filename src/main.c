@@ -6,11 +6,12 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 22:54:32 by dyunta            #+#    #+#             */
-/*   Updated: 2023/10/16 22:01:18 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/10/17 19:46:22 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
+#include <libft.h>
 
 // TODO: check if args are repeated
 int	main(int argc, char *argv[])
@@ -36,9 +37,14 @@ int	main(int argc, char *argv[])
 //	double_reverse_rotate(stack_a, stack_b);
 //	double_rotate(stack_a, stack_b);
 //	double_swap(stack_a, stack_b);
-	// FIXME: Everything works until stack_a is sorted and the check fails
 	while (check_if_sorted(stack_a))
 	{
+		// FIXME: Error displays after some instrunctions are printed if a number is repeated
+		if (check_if_sorted(stack_a) == -1)
+		{
+			ft_putendl_fd("Error", 2);
+			return (1);
+		}
 		phase1(stack_a, stack_b);
 		phase2(stack_a, stack_b);
 	}

@@ -6,7 +6,7 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 18:07:16 by dyunta            #+#    #+#             */
-/*   Updated: 2023/10/16 21:59:10 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/10/17 19:32:29 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int check_if_reverse_sorted(t_stack *stack)
 	int current_n;
 
 	i = 0;
-	while (i <= stack->top1)
+	while (i < stack->top1)
 	{
 		last_n = stack->p[i];
 		current_n = stack->p[++i];
@@ -97,7 +97,7 @@ int check_if_sorted(t_stack *stack)
 	int current_n;
 
 	i = 0;
-	while (i++ <= stack->top1)
+	while (i++ < stack->top1)
 	{
 		last_n = stack->p[i - 1];
 		current_n = stack->p[i];
