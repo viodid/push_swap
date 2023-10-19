@@ -6,7 +6,7 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 20:47:39 by dyunta            #+#    #+#             */
-/*   Updated: 2023/10/05 21:30:05 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/10/19 20:56:02 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	ft_strtol(const char *s)
 	Check whether the args in argv are numbers.
 	Returns 1 if fails the check.
 */
-int	check_arg(int argc, char *argv[])
+int	check_num_arg(int argc, char *argv[])
 {
 	while (--argc > 0)
 	{
@@ -60,6 +60,55 @@ int	check_arg(int argc, char *argv[])
 			ft_putendl_fd("Error", 2);
 			return (1);
 		}
+	}
+	return (0);
+}
+
+static int insertion_sort(int *arr, int size);
+int check_repeated_arg(t_stack *stack)
+{
+	int	*arr;
+	int i;
+	int	size;
+
+	size = stack->top1 + 1;
+	arr = (int *) malloc(sizeof(int) * size);
+	i = 0;
+	while (i <= stack->top1)
+	{
+		arr[i] = stack->p[i];
+		i++;
+	}
+	if (insertion_sort(arr, size))
+	{
+		free(arr);
+		return (1);
+	}
+	free(arr);
+	return (0);
+}
+
+
+int insertion_sort(int *arr, int size) {
+	int i;
+	int j;
+	int key;
+
+	i = 0;
+	j = 0;
+	while (j < size)
+	{
+		key = arr[j];
+		i = j - 1;
+		while (i > 0 && arr[i] > key)
+		{
+			arr[i + 1] = arr[i];
+			i = i -1;
+		}
+		arr[i + 1] = key;
+		j++;
+		if (arr[i] == key)
+			return (1);
 	}
 	return (0);
 }

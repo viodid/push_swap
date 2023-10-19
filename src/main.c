@@ -6,7 +6,7 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 22:54:32 by dyunta            #+#    #+#             */
-/*   Updated: 2023/10/17 19:46:22 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/10/19 20:58:46 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,30 +21,18 @@ int	main(int argc, char *argv[])
 
 	if (argc <= 1)
 		return (1);
-	if (check_arg(argc, argv))
+	if (check_num_arg(argc, argv))
 		return (1);
 	stack_a = populate_stack(argc, argv, create_stack(argc - 1));
 	stack_b = create_stack(argc - 1);
-//	swap(stack_a);
-//	push(stack_a, stack_b);
-//	swap(stack_b);
-//	push(stack_a, stack_b);
-//	swap(stack_b, "sb");
-//	reverse_rotate(stack_a, "rra");
-//	reverse_rotate(stack_a, "rra");
-//	push(stack_a, stack_b, "pb");
-//	push(stack_a, stack_b, "pb");
-//	double_reverse_rotate(stack_a, stack_b);
-//	double_rotate(stack_a, stack_b);
-//	double_swap(stack_a, stack_b);
+	// FIXME: It gives an error when 0 is passed as an arg
+	if (check_repeated_arg(stack_a))
+	{
+		ft_putendl_fd("Error", 2);
+		return (1);
+	}
 	while (check_if_sorted(stack_a))
 	{
-		// FIXME: Error displays after some instrunctions are printed if a number is repeated
-		if (check_if_sorted(stack_a) == -1)
-		{
-			ft_putendl_fd("Error", 2);
-			return (1);
-		}
 		phase1(stack_a, stack_b);
 		phase2(stack_a, stack_b);
 	}

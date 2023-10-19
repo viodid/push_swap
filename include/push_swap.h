@@ -6,7 +6,7 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 00:04:20 by dyunta            #+#    #+#             */
-/*   Updated: 2023/10/16 21:17:11 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/10/19 20:51:31 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ typedef struct s_stack
 }	t_stack;
 
 int		ft_strtol(const char *s);
-int		check_arg(int argc, char *argv[]);
+int		check_num_arg(int argc, char *argv[]);
+int check_repeated_arg(t_stack *stack);
 t_stack	*populate_stack(int argc, char *argv[], t_stack *stack_s);
 t_stack	*create_stack(const int arg_len);
 void	swap(t_stack *stack, char *name);
@@ -38,8 +39,8 @@ void	rotate(t_stack *stack, char *name);
 void	double_rotate(t_stack *stack1, t_stack *stack2);
 void	reverse_rotate(t_stack *stack, char *name);
 void	double_reverse_rotate(t_stack *stack1, t_stack *stack2);
-int		phase1(t_stack *stack_A, t_stack *stack_B);
-int		phase2(t_stack *stack_A, t_stack *stack_B);
+void	phase1(t_stack *stack_A, t_stack *stack_B);
+void	phase2(t_stack *stack_A, t_stack *stack_B);
 int		check_if_sorted(t_stack *stack);
 
 #endif
