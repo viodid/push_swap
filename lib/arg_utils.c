@@ -6,7 +6,7 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 20:47:39 by dyunta            #+#    #+#             */
-/*   Updated: 2023/10/19 20:56:02 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/10/19 21:59:35 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 	the number as an integer, or -1 if any char is not a number.
 	It sets the errno to ERANGE when the number is larger than INT_MAX. 
 */
+// FIXME: I cannot return an integer as a code error in a function that returns integers...
 int	ft_strtol(const char *s)
 {
 	int		sign;
@@ -64,7 +65,7 @@ int	check_num_arg(int argc, char *argv[])
 	return (0);
 }
 
-static int insertion_sort(int *arr, int size);
+static int selection_sort(int *arr, int size);
 int check_repeated_arg(t_stack *stack)
 {
 	int	*arr;
@@ -79,7 +80,7 @@ int check_repeated_arg(t_stack *stack)
 		arr[i] = stack->p[i];
 		i++;
 	}
-	if (insertion_sort(arr, size))
+	if (selection_sort(arr, size))
 	{
 		free(arr);
 		return (1);
@@ -89,26 +90,30 @@ int check_repeated_arg(t_stack *stack)
 }
 
 
-int insertion_sort(int *arr, int size) {
+int selection_sort(int *arr, int size)
+{
 	int i;
 	int j;
-	int key;
+	int temp;
 
 	i = 0;
-	j = 0;
-	while (j < size)
+	while (i < size)
 	{
-		key = arr[j];
-		i = j - 1;
-		while (i > 0 && arr[i] > key)
+		j = i + 1;
+		while (j < size)
 		{
-			arr[i + 1] = arr[i];
-			i = i -1;
+			if (arr[i] == arr[j])
+				return (1);
+			if (arr[i] > arr[j])
+			{
+				temp = arr[i];
+				arr[i] = arr[j];
+				arr[j] = temp;
+			}
+			j++;
 		}
-		arr[i + 1] = key;
-		j++;
-		if (arr[i] == key)
-			return (1);
+		i++;
 	}
 	return (0);
 }
+
