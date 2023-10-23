@@ -6,7 +6,7 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 00:04:20 by dyunta            #+#    #+#             */
-/*   Updated: 2023/10/19 20:51:31 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/10/23 21:24:02 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_stack
 
 int		ft_strtol(const char *s);
 int		check_num_arg(int argc, char *argv[]);
+int		count_args(char **argv);
 int check_repeated_arg(t_stack *stack);
 t_stack	*populate_stack(int argc, char *argv[], t_stack *stack_s);
 t_stack	*create_stack(const int arg_len);

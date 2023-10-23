@@ -6,7 +6,7 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 01:07:06 by dyunta            #+#    #+#             */
-/*   Updated: 2023/10/09 21:36:51 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/10/23 19:58:16 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	update_stack_indexes(t_stack *stack, int add);
 
 void	push(t_stack *stack_src, t_stack *stack_dst, char *name)
 {
-	if (stack_src->p[stack_src->top1] == -1)
+	if (stack_src->top1 == -1)
 		return ;
 	stack_dst->p[stack_dst->top1 + 1] = stack_src->p[stack_src->top1];
 	update_stack_indexes(stack_src, 0);

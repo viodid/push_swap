@@ -6,7 +6,7 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 20:47:39 by dyunta            #+#    #+#             */
-/*   Updated: 2023/10/19 21:59:35 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/10/23 20:46:44 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 /*
 	Takes a pointer to the start of a str populated  with numbers and outputs
 	the number as an integer, or -1 if any char is not a number.
-	It sets the errno to ERANGE when the number is larger than INT_MAX. 
+	It sets the errno to 1 when the number is larger than INT_MAX or when
+ 	the char does not represent a number.
 */
-// FIXME: I cannot return an integer as a code error in a function that returns integers...
 int	ft_strtol(const char *s)
 {
 	int		sign;
@@ -26,8 +26,6 @@ int	ft_strtol(const char *s)
 
 	sign = 1;
 	number = 0;
-	if (*s == '\0')
-		return (-1);
 	if (*s == '-')
 	{
 		sign *= -1;
@@ -35,12 +33,11 @@ int	ft_strtol(const char *s)
 	}
 	while (*s)
 	{
-		if (*s < '0' || *s > '9' || *s == '\n')
-			return (-1);
-		if (number > (INT_MAX - (*s - '0')) / 10)
+		if ((*s < '0' || *s > '9' || *s == '\n')
+			|| (number > (INT_MAX - (*s - '0')) / 10))
 		{
-			errno = ERANGE;
-			return (-1);
+			errno = 1;
+			return (0);
 		}
 		number *= 10;
 		number += (int)(*s++ - '0');
@@ -56,7 +53,8 @@ int	check_num_arg(int argc, char *argv[])
 {
 	while (--argc > 0)
 	{
-		if (errno == ERANGE || ft_strtol(argv[argc]) == -1)
+		ft_strtol(argv[argc]);
+		if (errno != 0 || *argv[argc] == '\0')
 		{
 			ft_putendl_fd("Error", 2);
 			return (1);
@@ -65,11 +63,12 @@ int	check_num_arg(int argc, char *argv[])
 	return (0);
 }
 
-static int selection_sort(int *arr, int size);
-int check_repeated_arg(t_stack *stack)
+static int	selection_sort(int *arr, int size);
+
+int	check_repeated_arg(t_stack *stack)
 {
 	int	*arr;
-	int i;
+	int	i;
 	int	size;
 
 	size = stack->top1 + 1;
@@ -89,12 +88,11 @@ int check_repeated_arg(t_stack *stack)
 	return (0);
 }
 
-
-int selection_sort(int *arr, int size)
+int	selection_sort(int *arr, int size)
 {
-	int i;
-	int j;
-	int temp;
+	int	i;
+	int	j;
+	int	temp;
 
 	i = 0;
 	while (i < size)
@@ -116,4 +114,3 @@ int selection_sort(int *arr, int size)
 	}
 	return (0);
 }
-
