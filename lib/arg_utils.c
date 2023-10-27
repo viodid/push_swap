@@ -51,7 +51,7 @@ int	ft_strtol(const char *s)
 */
 int	check_num_arg(int argc, char *argv[])
 {
-	while (--argc > 0)
+	while (--argc >= 0)
 	{
 		ft_strtol(argv[argc]);
 		if (errno != 0 || *argv[argc] == '\0')

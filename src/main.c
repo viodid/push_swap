@@ -6,7 +6,7 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 22:54:32 by dyunta            #+#    #+#             */
-/*   Updated: 2023/10/23 21:59:13 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/10/27 17:21:11 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,14 @@ int	main(int argc, char *argv[])
 
 	if (argc <= 1)
 		return (1);
+	argv = &argv[1];
 	if (argc == 2)
-	{
-		argv = ft_split(argv[1], ' ');
-		argc = count_args(argv) + 1;
-	}
+		argv = ft_split(argv[0], ' ');
+	argc = count_args(argv);
 	if (check_num_arg(argc, argv))
 		return (1);
-	stack_a = populate_stack(argc, argv, create_stack(argc - 1));
-	stack_b = create_stack(argc - 1);
+	stack_a = populate_stack(argc, argv, create_stack(argc));
+	stack_b = create_stack(argc);
 	if (check_repeated_arg(stack_a))
 	{
 		ft_putendl_fd("Error", 2);

@@ -43,7 +43,7 @@ t_stack	*populate_stack(int argc, char *argv[], t_stack *stack_s)
 
 	stack = (int *) stack_s->p;
 	i = 0;
-	while (--argc > 0)
+	while (--argc >= 0)
 		stack[i++] = ft_strtol(argv[argc]);
 	if (i > 1)
 	{
