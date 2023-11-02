@@ -6,10 +6,13 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 00:04:15 by dyunta            #+#    #+#             */
-/*   Updated: 2023/02/08 00:04:15 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/11/02 20:57:47 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+ * Converts the initial portion of the string pointed to by nptr to int.
+ */
 int	ft_atoi(const char *nptr)
 {
 	int	i;

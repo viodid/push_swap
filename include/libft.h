@@ -6,7 +6,7 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 00:04:20 by dyunta            #+#    #+#             */
-/*   Updated: 2023/02/09 19:47:48 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/11/02 21:05:16 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <errno.h>
+# include <limits.h>
 
 typedef struct s_list
 {
@@ -26,6 +28,7 @@ typedef struct s_list
 }	t_list;
 
 int		ft_atoi(const char *nptr);
+int		ft_strtol(const char *s);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t number, size_t size);
 int		ft_isalnum(int c);

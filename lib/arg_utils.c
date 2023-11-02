@@ -6,44 +6,12 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 20:47:39 by dyunta            #+#    #+#             */
-/*   Updated: 2023/10/23 20:46:44 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/11/02 21:04:10 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 #include <libft.h>
-
-/*
-	Takes a pointer to the start of a str populated  with numbers and outputs
-	the number as an integer, or -1 if any char is not a number.
-	It sets the errno to 1 when the number is larger than INT_MAX or when
- 	the char does not represent a number.
-*/
-int	ft_strtol(const char *s)
-{
-	int		sign;
-	int		number;
-
-	sign = 1;
-	number = 0;
-	if (*s == '-')
-	{
-		sign *= -1;
-		s++;
-	}
-	while (*s)
-	{
-		if ((*s < '0' || *s > '9' || *s == '\n')
-			|| (number > (INT_MAX - (*s - '0')) / 10))
-		{
-			errno = 1;
-			return (0);
-		}
-		number *= 10;
-		number += (int)(*s++ - '0');
-	}
-	return (number * sign);
-}
 
 /*
 	Check whether the args in argv are numbers.

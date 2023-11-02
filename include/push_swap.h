@@ -27,7 +27,6 @@ typedef struct s_stack
 	int		top2;
 }	t_stack;
 
-int		ft_strtol(const char *s);
 int		check_num_arg(int argc, char *argv[]);
 int		count_args(char **argv);
 int check_repeated_arg(t_stack *stack);
