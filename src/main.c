@@ -6,7 +6,7 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 22:54:32 by dyunta            #+#    #+#             */
-/*   Updated: 2023/11/02 20:22:51 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/11/02 21:28:26 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ int	main(int argc, char *argv[])
 
 	if (argc <= 1)
 		return (1);
+	argv = &argv[1];
 	if (argc == 2)
-		argv = ft_split(argv[1], ' ');
+		argv = ft_split(argv[0], ' ');
 	argc = count_args(argv);
 	if (check_num_arg(argc, argv))
 		return (1);

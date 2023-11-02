@@ -6,7 +6,7 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 21:21:34 by dyunta            #+#    #+#             */
-/*   Updated: 2023/11/02 21:01:19 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/11/02 21:27:51 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ int	count_args(char **argv)
 		i++;
 	}
 	if (errno)
+	{
 		i--;
+		errno = 0;
+	}
 	return (i);
 }
