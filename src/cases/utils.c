@@ -6,18 +6,56 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 01:08:47 by dyunta            #+#    #+#             */
-/*   Updated: 2023/11/04 18:56:32 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/11/04 21:05:04 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
+#include "../../include/libft.h"
 
-void	take_smallest_to_top(t_stack *stack)
+void	take_smallest_to_top(t_stack *stack, char *name_stack)
 {
+	int		i;
+	char	*new_str;
+	int		upper_lower;
+	int 	nbr_mvn;
+
+	upper_lower = 0;
+	if (get_smallest_nbr(stack) > (stack->top1 / 2))
+		upper_lower = 1;
+	nbr_mvn = get_nbr_movements(stack, get_smallest_nbr(stack));
+	i = 0;
+	while (i < nbr_mvn)
+	{
+		if (upper_lower)
+		{
+			new_str = ft_strjoin("r", name_stack);
+			rotate(stack, new_str);
+		}
+		else
+		{
+			new_str = ft_strjoin("rr", name_stack);
+			reverse_rotate(stack, new_str);
+		}
+		free(new_str);
+		i++;
+	}
 }
 
 /*
- * Iterates through all the arr in t_stack and returns the smallest number idx.
+ * Takes a t_stack and an int and returns the total number of movements
+ * that would take to get that idx's number to the top of the stack
+ * through the shortest path.
+ */
+int	get_nbr_movements(t_stack *stack, int idx)
+{
+	if (idx > (stack->top1 / 2))
+		return (stack->top1 - idx);
+	return (idx + 1);
+}
+
+/*
+ * Iterates through all the arr in t_stack and returns the idx of the smallest number.
  */
 int	get_smallest_nbr(t_stack *stack)
 {
@@ -34,5 +72,5 @@ int	get_smallest_nbr(t_stack *stack)
 			tmp_idx = i;
 		i--;
 	}
-	return ((tmp_idx - stack->top1) * -1);
+	return (tmp_idx);
 }

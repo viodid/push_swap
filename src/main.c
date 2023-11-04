@@ -6,7 +6,7 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 22:54:32 by dyunta            #+#    #+#             */
-/*   Updated: 2023/11/04 18:50:11 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/11/04 20:54:07 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,21 @@ int	main(int argc, char *argv[])
 		ft_putendl_fd("Error", 2);
 		return (1);
 	}
-	//handle_cases(stack_a, stack_b, argc);
+	take_smallest_to_top(stack_a, "a");
+	print_stack(stack_a);
 	free(stack_a->p);
 	free(stack_b->p);
 	free(stack_a);
 	free(stack_b);
 	return (0);
+}
+
+void	print_stack(t_stack *stack)
+{
+	int i = stack->top1;
+	while (i >= 0)
+	{
+		printf("%d ", stack->p[i--]);
+	}
+	printf("\n");
 }

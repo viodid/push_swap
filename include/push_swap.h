@@ -6,7 +6,7 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 00:04:20 by dyunta            #+#    #+#             */
-/*   Updated: 2023/11/04 18:35:17 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/11/04 20:49:45 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,11 @@ void	handle_cases(t_stack *stack_a, t_stack *stack_b, int length);
 void	case_3(t_stack *stack);
 void	case_5(t_stack *stack_a, t_stack *stack_b);
 int		get_smallest_nbr(t_stack *stack);
+void	take_smallest_to_top(t_stack *stack, char *name_stack);
+int		get_nbr_movements(t_stack *stack, int idx);
+
+
+// TODO: remove this funciton
+void	print_stack(t_stack *stack);
 
 #endif
