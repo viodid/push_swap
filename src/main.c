@@ -6,7 +6,7 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 22:54:32 by dyunta            #+#    #+#             */
-/*   Updated: 2023/11/02 21:28:26 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/11/04 14:54:12 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,7 @@ int	main(int argc, char *argv[])
 		ft_putendl_fd("Error", 2);
 		return (1);
 	}
-	while (check_ascending_order(stack_a))
-	{
-		phase1(stack_a, stack_b);
-		phase2(stack_a, stack_b);
-	}
+	case_3(stack_a);
 	free(stack_a->p);
 	free(stack_b->p);
 	free(stack_a);
