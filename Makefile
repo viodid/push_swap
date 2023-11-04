@@ -9,7 +9,7 @@ OPT=-g3
 DEPFLAGS=-MP -MD
 CFLAGS=-Wall -Wextra -Werror -I$(INCDIR) $(OPT) $(DEPFLAGS)
 
-CFILES=$(foreach dir, $(CODEDIRS), $(wildcard $(dir)/*.c))
+CFILES=$(foreach dir, $(CODEDIRS), $(wildcard $(dir)/*/*.c))
 OBJETCS=$(patsubst %.c, %.o, $(CFILES))
 DEPFILES=$(patsubst %.c, %.d, $(CFILES))
 
