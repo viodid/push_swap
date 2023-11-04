@@ -6,7 +6,7 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 01:08:47 by dyunta            #+#    #+#             */
-/*   Updated: 2023/11/04 21:05:04 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/11/04 21:05:34 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	take_smallest_to_top(t_stack *stack, char *name_stack)
 	int 	nbr_mvn;
 
 	upper_lower = 0;
-	if (get_smallest_nbr(stack) > (stack->top1 / 2))
+	if (get_smallest_nbr(stack) >= (stack->top1 / 2))
 		upper_lower = 1;
 	nbr_mvn = get_nbr_movements(stack, get_smallest_nbr(stack));
 	i = 0;
@@ -49,7 +49,7 @@ void	take_smallest_to_top(t_stack *stack, char *name_stack)
  */
 int	get_nbr_movements(t_stack *stack, int idx)
 {
-	if (idx > (stack->top1 / 2))
+	if (idx >= (stack->top1 / 2))
 		return (stack->top1 - idx);
 	return (idx + 1);
 }

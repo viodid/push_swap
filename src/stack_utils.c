@@ -6,7 +6,7 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 23:29:23 by dyunta            #+#    #+#             */
-/*   Updated: 2023/11/04 14:54:12 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/11/04 21:11:54 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <push_swap.h>
 
 /*
- * Returns an initialized t_stack with len(t_stack->p) = arg_len.
+ * Declares, initialized a t_stack with len(t_stack->p) = arg_len and returns it.
  */
 t_stack	*create_stack(const int arg_len)
 {
@@ -59,11 +59,11 @@ t_stack	*populate_stack(int argc, char *argv[], t_stack *stack_s)
  * Check whether the stack is sort in descending order.
  * Returns 1 if it's not.
  */
-int check_descending_order(t_stack *stack)
+int	check_descending_order(t_stack *stack)
 {
-	int i;
-	int last_n;
-	int current_n;
+	int	i;
+	int	last_n;
+	int	current_n;
 
 	i = 0;
 	while (i < stack->top1)
@@ -80,11 +80,11 @@ int check_descending_order(t_stack *stack)
  * Check whether the stack is sort in ascending order.
  * Returns 1 if it's not.
  */
-int check_ascending_order(t_stack *stack)
+int	check_ascending_order(t_stack *stack)
 {
-	int i;
-	int last_n;
-	int current_n;
+	int	i;
+	int	last_n;
+	int	current_n;
 
 	i = 0;
 	while (i++ < stack->top1)
