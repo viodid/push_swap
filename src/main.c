@@ -33,7 +33,7 @@ int	main(int argc, char *argv[])
 		ft_putendl_fd("Error", 2);
 		return (1);
 	}
-	while (check_if_sorted(stack_a))
+	while (check_ascending_order(stack_a))
 	{
 		phase1(stack_a, stack_b);
 		phase2(stack_a, stack_b);

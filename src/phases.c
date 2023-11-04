@@ -12,14 +12,12 @@
 
 #include "../include/push_swap.h"
 
-int check_if_reverse_sorted(t_stack *stack);
-
 void	phase1(t_stack *stack_A, t_stack *stack_B)
 {
 	int	top1_n;
 	int top2_n;
 
-	if (!check_if_sorted(stack_A))
+	if (!check_ascending_order(stack_A))
 		return ;
 	while (stack_A->top1 != -1)
 	{
@@ -46,7 +44,7 @@ void	phase2(t_stack *stack_A, t_stack *stack_B)
 	int	top1_n;
 	int top2_n;
 
-	if (!check_if_reverse_sorted(stack_B))
+	if (!check_descending_order(stack_B))
 		while (stack_B->top1 >= 0)
 			push(stack_B, stack_A, "pa");
 	while (stack_B->top1 != -1)
@@ -69,36 +67,3 @@ void	phase2(t_stack *stack_A, t_stack *stack_B)
 	}
 }
 
-int check_if_reverse_sorted(t_stack *stack)
-{
-	int i;
-	int last_n;
-	int current_n;
-
-	i = 0;
-	while (i < stack->top1)
-	{
-		last_n = stack->p[i];
-		current_n = stack->p[++i];
-		if (last_n > current_n)
-			return (1);
-	}
-	return (0);
-}
-
-int check_if_sorted(t_stack *stack)
-{
-	int i;
-	int last_n;
-	int current_n;
-
-	i = 0;
-	while (i++ < stack->top1)
-	{
-		last_n = stack->p[i - 1];
-		current_n = stack->p[i];
-		if (last_n < current_n)
-			return (1);
-	}
-	return (0);
-}

@@ -6,7 +6,7 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 23:29:23 by dyunta            #+#    #+#             */
-/*   Updated: 2023/10/06 20:32:52 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/11/04 14:54:12 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,46 @@ t_stack	*populate_stack(int argc, char *argv[], t_stack *stack_s)
 	else
 		stack_s->top1 = i - 1;
 	return (stack_s);
+}
+
+/*
+ * Check whether the stack is sort in descending order.
+ * Returns 1 if it's not.
+ */
+int check_descending_order(t_stack *stack)
+{
+	int i;
+	int last_n;
+	int current_n;
+
+	i = 0;
+	while (i < stack->top1)
+	{
+		last_n = stack->p[i];
+		current_n = stack->p[++i];
+		if (last_n > current_n)
+			return (1);
+	}
+	return (0);
+}
+
+/*
+ * Check whether the stack is sort in ascending order.
+ * Returns 1 if it's not.
+ */
+int check_ascending_order(t_stack *stack)
+{
+	int i;
+	int last_n;
+	int current_n;
+
+	i = 0;
+	while (i++ < stack->top1)
+	{
+		last_n = stack->p[i - 1];
+		current_n = stack->p[i];
+		if (last_n < current_n)
+			return (1);
+	}
+	return (0);
 }
