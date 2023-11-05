@@ -6,7 +6,7 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 22:54:32 by dyunta            #+#    #+#             */
-/*   Updated: 2023/11/05 20:20:25 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/11/05 20:22:53 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(int argc, char *argv[])
 		return (1);
 	}
 	// print_arr(create_and_sort_arr(stack_a->p, stack_a->top1 + 1), stack_a->top1 + 1);
-	case_all(stack_a, stack_b, argc, 0);
+	case_all(stack_a, stack_b, argc);
 //	print_stack(stack_a);
 //	print_stack(stack_b);
 	free(stack_a->p);
