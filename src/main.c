@@ -6,7 +6,7 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 22:54:32 by dyunta            #+#    #+#             */
-/*   Updated: 2023/11/05 16:06:41 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/11/05 16:27:56 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	main(int argc, char *argv[])
 		ft_putendl_fd("Error", 2);
 		return (1);
 	}
+	print_arr(create_and_sort_arr(stack_a->p, stack_a->top1 + 1), stack_a->top1 + 1);
 	print_stack(stack_a);
 	print_stack(stack_b);
 	free(stack_a->p);
@@ -49,6 +50,18 @@ void	print_stack(t_stack *stack)
 	while (i >= 0)
 	{
 		printf("%d ", stack->p[i--]);
+	}
+	printf("\n");
+}
+
+void	print_arr(int *arr, int size)
+{
+	int	i;
+
+	i = 0;
+	while (i <= size - 1)
+	{
+		printf("%d ", arr[i++]);
 	}
 	printf("\n");
 }

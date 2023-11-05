@@ -31,8 +31,6 @@ int	check_num_arg(int argc, char *argv[])
 	return (0);
 }
 
-static int	selection_sort(int *arr, int size);
-
 int	check_repeated_arg(t_stack *stack)
 {
 	int	*arr;
