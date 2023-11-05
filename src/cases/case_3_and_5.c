@@ -6,7 +6,7 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 01:08:47 by dyunta            #+#    #+#             */
-/*   Updated: 2023/11/04 17:03:53 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/11/05 17:16:49 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,17 @@ void	case_3(t_stack *stack)
 	else if (b > a && b > c)
 		reverse_rotate(stack, "rra");
 	case_3(stack);
+}
+
+void	case_5(t_stack *stack_a, t_stack *stack_b)
+{
+	if (!check_ascending_order(stack_a))
+		return ;
+	take_nbr_to_top(stack_a, "a", get_smallest_nbr(stack_a));
+	push(stack_a, stack_b, "pb");
+	take_nbr_to_top(stack_a, "a", get_smallest_nbr(stack_a));
+	push(stack_a, stack_b, "pb");
+	case_3(stack_a);
+	push(stack_b, stack_a, "pa");
+	push(stack_b, stack_a, "pa");
 }

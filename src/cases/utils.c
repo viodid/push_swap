@@ -6,14 +6,19 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 01:08:47 by dyunta            #+#    #+#             */
-/*   Updated: 2023/11/05 16:05:32 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/11/05 17:26:46 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 #include "../../include/libft.h"
 
-void take_nbr_to_top(t_stack *stack, char *name_stack, int nbr)
+/*
+ * Takes a t_stack, the name of the stack and an int. The function takes the
+ * integer at index idx in t_stack->p and moves it to the top of the stack
+ * through the shortest path.
+ */
+void take_nbr_to_top(t_stack *stack, char *name_stack, int idx)
 {
 	int		i;
 	char	*new_str;
@@ -21,9 +26,9 @@ void take_nbr_to_top(t_stack *stack, char *name_stack, int nbr)
 	int 	nbr_mvn;
 
 	upper_lower = 0;
-	if (nbr >= (stack->top1 / 2))
+	if (idx >= (stack->top1 / 2))
 		upper_lower = 1;
-	nbr_mvn = get_nbr_movements(stack, nbr);
+	nbr_mvn = get_nbr_movements(stack, idx);
 	i = 0;
 	while (i < nbr_mvn)
 	{

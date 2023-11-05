@@ -6,24 +6,47 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 22:54:32 by dyunta            #+#    #+#             */
-/*   Updated: 2023/11/05 16:25:41 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/11/05 20:30:15 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include <push_swap.h>
 
-//void	case_all(t_stack *stack_a, t_stack *stack_b, int size)
-//{
-//
-//}
+static int	*create_and_sort_arr(const int *src_arr, int size);
+static int	get_nbr_in_chunk(t_stack *stack, int key_nbr);
 
-int	*create_and_sort_arr(const int *src_arr, int size)
+void case_all(t_stack *stack_a, t_stack *stack_b, int size, int threshold)
+{
+	int	key_nbr;
+	int	*sort_arr;
+
+
+	if (stack_a->top1 == 0)
+		return ;
+	sort_arr = create_and_sort_arr(stack_a->p, size);
+
+	if (size > threshold)
+		key_nbr = sort_arr[threshold - 1];
+	else
+		key_nbr = sort_arr[size - 1];
+	take_nbr_to_top(stack_a, "a", get_nbr_in_chunk(stack_a, key_nbr));
+	push(stack_a, stack_b, "pb");
+	case_all(stack_a, stack_b, size, threshold + 20);
+}
+
+/*
+ * Allocates enough space and returns a new arr with src numbers sorted
+ * in increasing order.
+ * O(n^2)
+ */
+static int	*create_and_sort_arr(const int *src_arr, int size)
 {
 	int	*dst_arr;
 	int	i;
 
 	dst_arr = (int *) malloc(sizeof(int) * size);
-
+	if (!dst_arr)
+		return (NULL);
 	i = 0;
 	while (i <= size - 1)
 	{
@@ -32,4 +55,37 @@ int	*create_and_sort_arr(const int *src_arr, int size)
 	}
 	selection_sort(dst_arr, size);
 	return (dst_arr);
+}
+
+/*
+ * Takes a t_stack and an int, and returns the idx of the least expensive number
+ * in terms of movements to move it to the top of the stack.
+ * The number's idx is not bigger than key_nbr.
+ * Returns -1 if it cannot find an index under key_nbr.
+ */
+static int	get_nbr_in_chunk(t_stack *stack, int key_nbr)
+{
+	int	i;
+	int	idx;
+
+	i = 0;
+	while (i <= stack->top1)
+	{
+		if (stack->p[i++] <= key_nbr)
+		{
+			idx = i - 1;
+			break;
+		}
+	}
+	i = stack->top1;
+	while (i >= 0)
+	{
+		if (stack->p[i--] <= key_nbr)
+		{
+			if (get_nbr_movements(stack, idx) + 1 > get_nbr_movements(stack, i + 1))
+				return (i + 1);
+			return (idx);
+		}
+	}
+	return (-1);
 }
