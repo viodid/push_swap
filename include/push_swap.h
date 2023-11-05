@@ -6,7 +6,7 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 00:04:20 by dyunta            #+#    #+#             */
-/*   Updated: 2023/11/04 21:22:30 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/11/05 16:06:05 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,10 @@ int		check_descending_order(t_stack *stack);
 void	handle_cases(t_stack *stack_a, t_stack *stack_b, int length);
 void	case_3(t_stack *stack);
 void	case_5(t_stack *stack_a, t_stack *stack_b);
+void	case_all(t_stack *stack_a, t_stack *stack_b, int length);
 int		get_smallest_nbr(t_stack *stack);
-void	take_smallest_to_top(t_stack *stack, char *name_stack);
+int		get_biggest_nbr(t_stack *stack);
+void	take_nbr_to_top(t_stack *stack, char *name_stack, int nbr);
 int		get_nbr_movements(t_stack *stack, int idx);
 
 

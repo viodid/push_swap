@@ -6,14 +6,14 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 01:08:47 by dyunta            #+#    #+#             */
-/*   Updated: 2023/11/04 21:05:34 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/11/05 16:05:32 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 #include "../../include/libft.h"
 
-void	take_smallest_to_top(t_stack *stack, char *name_stack)
+void take_nbr_to_top(t_stack *stack, char *name_stack, int nbr)
 {
 	int		i;
 	char	*new_str;
@@ -21,9 +21,9 @@ void	take_smallest_to_top(t_stack *stack, char *name_stack)
 	int 	nbr_mvn;
 
 	upper_lower = 0;
-	if (get_smallest_nbr(stack) >= (stack->top1 / 2))
+	if (nbr >= (stack->top1 / 2))
 		upper_lower = 1;
-	nbr_mvn = get_nbr_movements(stack, get_smallest_nbr(stack));
+	nbr_mvn = get_nbr_movements(stack, nbr);
 	i = 0;
 	while (i < nbr_mvn)
 	{
@@ -69,6 +69,27 @@ int	get_smallest_nbr(t_stack *stack)
 	while (i >= 0)
 	{
 		if (arr[i] < arr[tmp_idx])
+			tmp_idx = i;
+		i--;
+	}
+	return (tmp_idx);
+}
+
+/*
+ * Iterates through all the arr in t_stack and returns the idx of the smallest number.
+ */
+int	get_biggest_nbr(t_stack *stack)
+{
+	int	*arr;
+	int	tmp_idx;
+	int	i;
+
+	arr = stack->p;
+	i = stack->top1;
+	tmp_idx = i;
+	while (i >= 0)
+	{
+		if (arr[i] > arr[tmp_idx])
 			tmp_idx = i;
 		i--;
 	}
