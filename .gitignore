@@ -64,3 +64,6 @@ dkms.conf
 push_swap_tester/
 push_swap_visualizer/
 .gitignore
+Push-Swap-Tester/
+traces.txt
+push_swap_test_linux.sh
