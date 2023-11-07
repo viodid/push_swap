@@ -21,8 +21,6 @@ void	case_3(t_stack *stack)
 	a = stack->p[stack->top1];
 	b = stack->p[stack->top2];
 	c = stack->p[stack->top2 - 1];
-	assert(stack->top1  == 2);
-	assert(stack->top2 - 1 == 0);
 	if (!check_ascending_order(stack))
 		return ;
 	if (a > b && c > b && c > a)

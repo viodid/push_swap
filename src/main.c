@@ -33,7 +33,6 @@ int	main(int argc, char *argv[])
 		ft_putendl_fd("Error", 2);
 		return (1);
 	}
-	// print_arr(create_and_sort_arr(stack_a->p, stack_a->top1 + 1), stack_a->top1 + 1);
 	handle_cases(stack_a, stack_b, argc);
 	free(stack_a->p);
 	free(stack_b->p);
@@ -43,24 +42,3 @@ int	main(int argc, char *argv[])
 }
 
 // REMOVE
-void	print_stack(t_stack *stack)
-{
-	int i = stack->top1;
-	while (i >= 0)
-	{
-		printf("%d ", stack->p[i--]);
-	}
-	printf("\n");
-}
-
-void	print_arr(int *arr, int size)
-{
-	int	i;
-
-	i = 0;
-	while (i <= size - 1)
-	{
-		printf("%d ", arr[i++]);
-	}
-	printf("\n");
-}
