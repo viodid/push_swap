@@ -6,7 +6,7 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 01:08:47 by dyunta            #+#    #+#             */
-/*   Updated: 2023/11/05 17:26:46 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/11/07 19:35:31 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
  * integer at index idx in t_stack->p and moves it to the top of the stack
  * through the shortest path.
  */
-void take_nbr_to_top(t_stack *stack, char *name_stack, int idx)
+void	take_nbr_to_top(t_stack *stack, char *name_stack, int idx)
 {
 	int		i;
 	char	*new_str;
 	int		upper_lower;
-	int 	nbr_mvn;
+	int		nbr_mvn;
 
 	upper_lower = 0;
 	if (idx >= (stack->top1 / 2))
@@ -60,7 +60,8 @@ int	get_nbr_movements(t_stack *stack, int idx)
 }
 
 /*
- * Iterates through all the arr in t_stack and returns the idx of the smallest number.
+ * Iterates through all the arr in t_stack and returns the idx of the
+ * smallest number.
  */
 int	get_smallest_nbr(t_stack *stack)
 {
@@ -81,7 +82,8 @@ int	get_smallest_nbr(t_stack *stack)
 }
 
 /*
- * Iterates through all the arr in t_stack and returns the idx of the smallest number.
+ * Iterates through all the arr in t_stack and returns the idx of
+ * the smallest number.
  */
 int	get_biggest_nbr(t_stack *stack)
 {

@@ -15,7 +15,7 @@
 void	phase1(t_stack *stack_A, t_stack *stack_B)
 {
 	int	top1_n;
-	int top2_n;
+	int	top2_n;
 
 	if (!check_ascending_order(stack_A))
 		return ;
@@ -42,7 +42,7 @@ void	phase1(t_stack *stack_A, t_stack *stack_B)
 void	phase2(t_stack *stack_A, t_stack *stack_B)
 {
 	int	top1_n;
-	int top2_n;
+	int	top2_n;
 
 	if (!check_descending_order(stack_B))
 		while (stack_B->top1 >= 0)
@@ -66,4 +66,3 @@ void	phase2(t_stack *stack_A, t_stack *stack_B)
 		push(stack_B, stack_A, "pa");
 	}
 }
-

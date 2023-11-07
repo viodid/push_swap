@@ -20,5 +20,4 @@ void	handle_cases(t_stack *stack_a, t_stack *stack_b, int length)
 		case_5(stack_a, stack_b);
 	else
 		case_all(stack_a, stack_b, length);
-
 }
