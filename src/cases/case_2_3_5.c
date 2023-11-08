@@ -6,11 +6,17 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 01:08:47 by dyunta            #+#    #+#             */
-/*   Updated: 2023/11/05 17:16:49 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/11/08 19:53:43 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
+
+void	case_2(t_stack *stack, char *name)
+{
+	if (stack->p[stack->top1] > stack->p[stack->top2])
+		rotate(stack, name);
+}
 
 void	case_3(t_stack *stack)
 {

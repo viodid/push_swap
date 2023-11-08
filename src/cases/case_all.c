@@ -42,6 +42,7 @@ void	case_all(t_stack *stack_a, t_stack *stack_b, int size)
 		take_nbr_to_top(stack_b, "b", get_smallest_nbr(stack_b));
 		push(stack_b, stack_a, "pa");
 	}
+	free(sort_arr);
 }
 
 /*

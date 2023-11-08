@@ -6,7 +6,7 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 22:54:32 by dyunta            #+#    #+#             */
-/*   Updated: 2023/11/06 20:55:33 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/11/08 19:41:20 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,7 @@ int	main(int argc, char *argv[])
 		return (1);
 	}
 	handle_cases(stack_a, stack_b, argc);
-	free(stack_a->p);
-	free(stack_b->p);
-	free(stack_a);
-	free(stack_b);
+	free_stack(stack_a);
+	free_stack(stack_b);
 	return (0);
 }
-
-// REMOVE

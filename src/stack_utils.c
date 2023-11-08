@@ -6,7 +6,7 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 23:29:23 by dyunta            #+#    #+#             */
-/*   Updated: 2023/11/04 21:11:54 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/11/08 19:39:18 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,4 +95,10 @@ int	check_ascending_order(t_stack *stack)
 			return (1);
 	}
 	return (0);
+}
+
+void	free_stack(t_stack *stack)
+{
+	free(stack->p);
+	free(stack);
 }

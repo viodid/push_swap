@@ -6,7 +6,7 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 00:04:20 by dyunta            #+#    #+#             */
-/*   Updated: 2023/11/07 19:24:44 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/11/08 19:55:03 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int		ft_strtol(const char *s);
 int		check_num_arg(int argc, char *argv[]);
 int		count_args(char **argv);
 int		check_repeated_arg(t_stack *stack);
+void	free_stack(t_stack *stack);
 int		selection_sort(int *arr, int size);
 t_stack	*populate_stack(int argc, char *argv[], t_stack *stack_s);
 t_stack	*create_stack(int arg_len);
@@ -49,6 +50,7 @@ void	phase2(t_stack *stack_A, t_stack *stack_B);
 int		check_ascending_order(t_stack *stack);
 int		check_descending_order(t_stack *stack);
 void	handle_cases(t_stack *stack_a, t_stack *stack_b, int length);
+void	case_2(t_stack *stack, char *name);
 void	case_3(t_stack *stack);
 void	case_5(t_stack *stack_a, t_stack *stack_b);
 void	case_all(t_stack *stack_a, t_stack *stack_b, int size);
