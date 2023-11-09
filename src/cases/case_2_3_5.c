@@ -38,6 +38,16 @@ void	case_3(t_stack *stack)
 	case_3(stack);
 }
 
+void	case_4(t_stack *stack_a, t_stack *stack_b)
+{
+	if (!check_ascending_order(stack_a))
+		return ;
+	take_nbr_to_top(stack_a, "a", get_smallest_nbr(stack_a));
+	push(stack_a, stack_b, "pb");
+	case_3(stack_a);
+	push(stack_b, stack_a, "pa");
+}
+
 void	case_5(t_stack *stack_a, t_stack *stack_b)
 {
 	if (!check_ascending_order(stack_a))

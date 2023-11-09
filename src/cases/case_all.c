@@ -6,7 +6,7 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 22:54:32 by dyunta            #+#    #+#             */
-/*   Updated: 2023/11/09 12:32:17 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/11/09 19:03:45 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,31 +16,30 @@ static int	*create_and_sort_arr(const int *src_arr, int size);
 static int	get_nbr_in_chunk(t_stack *stack, int key_nbr);
 static int	get_key_nbr(int size, int *sort_arr, int threshold);
 
-void	case_all(t_stack *stack_a, t_stack *stack_b, int size)
+void	case_all(t_stack *stack_a, t_stack *stack_b, int size, int threshold)
 {
-	int	key_nbr;
 	int	*sort_arr;
-	int	threshold;
 	int	i;
+	int	initial_threshold;
 
 	sort_arr = create_and_sort_arr(stack_a->p, size);
-	threshold = 20;
-	key_nbr = get_key_nbr(size, sort_arr, threshold);
 	i = 0;
+	initial_threshold = threshold;
 	while (stack_a->top1 >= 0)
 	{
-		while (i++ < threshold)
+		while (i < threshold)
 		{
-			take_nbr_to_top(stack_a, "a", get_nbr_in_chunk(stack_a, key_nbr));
+			i++;
+			take_nbr_to_top(stack_a, "a",
+				get_nbr_in_chunk(stack_a,
+					get_key_nbr(size, sort_arr, threshold)));
 			push(stack_a, stack_b, "pb");
 		}
-		i--;
-		threshold += 20;
-		key_nbr = get_key_nbr(size, sort_arr, threshold);
+		threshold += initial_threshold;
 	}
 	while (stack_b->top1 >= 0)
 	{
-		take_nbr_to_top(stack_b, "b", get_smallest_nbr(stack_b));
+		take_nbr_to_top(stack_b, "b", get_biggest_nbr(stack_b));
 		push(stack_b, stack_a, "pa");
 	}
 	free(sort_arr);
