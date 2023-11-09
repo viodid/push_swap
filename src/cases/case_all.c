@@ -6,7 +6,7 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 22:54:32 by dyunta            #+#    #+#             */
-/*   Updated: 2023/11/07 19:34:18 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/11/09 12:32:17 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	case_all(t_stack *stack_a, t_stack *stack_b, int size)
 			take_nbr_to_top(stack_a, "a", get_nbr_in_chunk(stack_a, key_nbr));
 			push(stack_a, stack_b, "pb");
 		}
+		i--;
 		threshold += 20;
 		key_nbr = get_key_nbr(size, sort_arr, threshold);
 	}
