@@ -6,12 +6,14 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 22:54:32 by dyunta            #+#    #+#             */
-/*   Updated: 2023/11/08 19:41:20 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/11/10 20:32:02 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 #include <libft.h>
+
+// TODO: CHECK FOR; LEAKS, MAKEFILE RELINK
 
 int	main(int argc, char *argv[])
 {
@@ -24,15 +26,15 @@ int	main(int argc, char *argv[])
 	if (argc == 2)
 		argv = ft_split(argv[0], ' ');
 	argc = count_args(argv);
-	if (check_num_arg(argc, argv))
-		return (1);
-	stack_a = populate_stack(argc, argv, create_stack(argc));
-	stack_b = create_stack(argc);
-	if (check_repeated_arg(stack_a))
+	if (check_num_arg(argc, argv) || selection_sort(argv, argc))
 	{
 		ft_putendl_fd("Error", 2);
 		return (1);
 	}
+	stack_a = populate_stack(argc, argv, create_stack(argc));
+	stack_b = create_stack(argc);
+	if (check_repeated_arg(stack_a))
+		return (1);
 	handle_cases(stack_a, stack_b, argc);
 	free_stack(stack_a);
 	free_stack(stack_b);

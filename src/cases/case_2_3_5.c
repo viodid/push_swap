@@ -6,7 +6,7 @@
 /*   By: dyunta <dyunta@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 01:08:47 by dyunta            #+#    #+#             */
-/*   Updated: 2023/11/08 19:53:43 by dyunta           ###   ########.fr       */
+/*   Updated: 2023/11/10 20:13:18 by dyunta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	case_2(t_stack *stack, char *name)
 {
-	if (stack->p[stack->top1] > stack->p[stack->top2])
+	if (stack->p[stack->top1] > stack->p[stack->top2] && stack->top2 != -1)
 		rotate(stack, name);
 }
 
