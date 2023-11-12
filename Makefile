@@ -1,29 +1,25 @@
 BINARY=push_swap
-CODEDIRS=. lib src
+CODEDIRS=lib src
 INCDIR=./include/
 BIN_DIR=./bin/
 
 CC=gcc
-OPT=-g3
+OPT=-O
 # https://stackoverflow.com/questions/8025766/makefile-auto-dependency-generation
-DEPFLAGS=-MP -MD
-CFLAGS=-Wall -Wextra -Werror -I$(INCDIR) $(OPT) $(DEPFLAGS)
+#DEPFLAGS=-MP -MD
+CFLAGS=-Wall -Wextra -Werror -I$(INCDIR) $(OPT)
 
-CFILES=$(foreach dir, $(CODEDIRS), $(wildcard $(dir)/*/*.c))
-OBJETCS=$(patsubst %.c, %.o, $(CFILES))
-DEPFILES=$(patsubst %.c, %.d, $(CFILES))
+CFILES=$(shell find $(CODEDIRS) -name '*.c')
+OBJECTS = $(CFILES:.c=.o)
 
 all: $(BINARY)
 
-$(BINARY): $(OBJETCS)
-	$(CC) $(CFLAGS) -o $(BIN_DIR)$@ $^
-
 # https://stackoverflow.com/questions/3220277/what-do-the-makefile-symbols-and-mean
-%.o: %.c
-	$(CC) $(CFLAGS) -c -o $@ $<
+$(BINARY): $(OBJECTS)
+	$(CC) $(CFLAGS) -o $@ $^
 
 clean:
-	rm -f $(OBJETCS) $(DEPFILES)
+	rm -f $(OBJECTS)
 
 fclean: clean
 	rm -f $(BINARY)
@@ -35,6 +31,4 @@ diff:
 	@git status
 	@git --no-pager diff --stat
 
-
-# include the dependency files
--include $(DEPFILES)
+.PHONY: all clean fclean re diff

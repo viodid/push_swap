@@ -52,6 +52,10 @@ t_stack	*populate_stack(int argc, char *argv[], t_stack *stack_s)
 	}
 	else
 		stack_s->top1 = i - 1;
+	i = 0;
+	// while (argv[i])
+	// 	free(argv[i++]);
+	// free(argv);
 	return (stack_s);
 }
 

@@ -80,6 +80,7 @@ static int	get_nbr_in_chunk(t_stack *stack, int key_nbr)
 	int	idx;
 
 	i = 0;
+	idx = 0;
 	while (i <= stack->top1)
 	{
 		if (stack->p[i++] <= key_nbr)
