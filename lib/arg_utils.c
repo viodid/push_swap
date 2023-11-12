@@ -17,13 +17,15 @@
 	Check whether the args in argv are numbers.
 	Returns 1 if fails the check.
 */
-int	check_num_arg(int argc, char *argv[])
+int	check_num_arg(int argc, char *argv[], int free_argv)
 {
 	while (--argc >= 0)
 	{
 		ft_strtol(argv[argc]);
 		if (errno != 0 || *argv[argc] == '\0')
 		{
+			if (free_argv)
+				free_argv_func(argv);
 			ft_putendl_fd("Error", 2);
 			return (1);
 		}
@@ -31,24 +33,36 @@ int	check_num_arg(int argc, char *argv[])
 	return (0);
 }
 
-int	check_repeated_arg(t_stack *stack)
+void	free_argv_func(char **argv)
+{
+	int	i;
+
+	i = 0;
+	while (argv[i])
+		free(argv[i++]);
+	free(argv);
+}
+
+int	check_repeated_arg(t_stack *stack_a, t_stack *stack_b,
+	int free_argv, char **argv)
 {
 	int	*arr;
 	int	i;
 	int	size;
 
-	size = stack->top1 + 1;
+	size = stack_a->top1 + 1;
 	arr = (int *) malloc(sizeof(int) * size);
 	i = 0;
-	while (i <= stack->top1)
+	while (i <= stack_a->top1)
 	{
-		arr[i] = stack->p[i];
+		arr[i] = stack_a->p[i];
 		i++;
 	}
 	if (selection_sort(arr, size))
 	{
 		ft_putendl_fd("Error", 2);
 		free(arr);
+		free_stacks_argv(stack_a, stack_b, free_argv, argv);
 		return (1);
 	}
 	free(arr);

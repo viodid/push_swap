@@ -18,6 +18,7 @@ all: $(BINARY)
 $(BINARY): $(OBJECTS)
 	$(CC) $(CFLAGS) -o $@ $^
 
+
 clean:
 	rm -f $(OBJECTS)
 

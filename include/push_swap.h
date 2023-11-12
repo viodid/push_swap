@@ -31,10 +31,13 @@ typedef struct s_stack
 void	print_stack(t_stack *stack);
 void	print_arr(int *arr, int size);
 int		ft_strtol(const char *s);
-int		check_num_arg(int argc, char *argv[]);
+void	free_argv_func(char **argv);
+int		check_num_arg(int argc, char *argv[], int freed_argv);
 int		count_args(char **argv);
-int		check_repeated_arg(t_stack *stack);
-void	free_stacks(t_stack *stack_a, t_stack* stack_b);
+int		check_repeated_arg(t_stack *stack_a, t_stack *stack_b,
+			int free_argv, char **argv);
+void	free_stacks_argv(t_stack *stack_a, t_stack *stack_b,
+			int free_argv, char **argv);
 int		selection_sort(int *arr, int size);
 t_stack	*populate_stack(int argc, char *argv[], t_stack *stack_s);
 t_stack	*create_stack(int arg_len);

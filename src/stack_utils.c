@@ -52,10 +52,6 @@ t_stack	*populate_stack(int argc, char *argv[], t_stack *stack_s)
 	}
 	else
 		stack_s->top1 = i - 1;
-	i = 0;
-	// while (argv[i])
-	// 	free(argv[i++]);
-	// free(argv);
 	return (stack_s);
 }
 
@@ -101,10 +97,13 @@ int	check_ascending_order(t_stack *stack)
 	return (0);
 }
 
-void	free_stacks(t_stack *stack_a, t_stack* stack_b)
+void	free_stacks_argv(t_stack *stack_a, t_stack *stack_b,
+	int free_argv, char **argv)
 {
 	free(stack_a->p);
 	free(stack_a);
 	free(stack_b->p);
 	free(stack_b);
+	if (free_argv)
+		free_argv_func(argv);
 }
