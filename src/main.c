@@ -26,7 +26,7 @@ int	main(int argc, char *argv[])
 	if (argc == 2)
 		argv = ft_split(argv[0], ' ');
 	argc = count_args(argv);
-	if (check_num_arg(argc, argv) || selection_sort(argv, argc))
+	if (check_num_arg(argc, argv))
 	{
 		ft_putendl_fd("Error", 2);
 		return (1);
@@ -34,9 +34,11 @@ int	main(int argc, char *argv[])
 	stack_a = populate_stack(argc, argv, create_stack(argc));
 	stack_b = create_stack(argc);
 	if (check_repeated_arg(stack_a))
+	{
+		free_stacks(stack_a, stack_b);
 		return (1);
+	}
 	handle_cases(stack_a, stack_b, argc);
-	free_stack(stack_a);
-	free_stack(stack_b);
+	free_stacks(stack_a, stack_b);
 	return (0);
 }

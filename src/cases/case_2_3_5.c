@@ -14,7 +14,9 @@
 
 void	case_2(t_stack *stack, char *name)
 {
-	if (stack->p[stack->top1] > stack->p[stack->top2] && stack->top2 != -1)
+	if (stack->top2 == -1)
+		return ;
+	if (stack->p[stack->top1] > stack->p[stack->top2])
 		rotate(stack, name);
 }
 

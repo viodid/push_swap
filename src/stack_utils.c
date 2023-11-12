@@ -97,8 +97,10 @@ int	check_ascending_order(t_stack *stack)
 	return (0);
 }
 
-void	free_stack(t_stack *stack)
+void	free_stacks(t_stack *stack_a, t_stack* stack_b)
 {
-	free(stack->p);
-	free(stack);
+	free(stack_a->p);
+	free(stack_a);
+	free(stack_b->p);
+	free(stack_b);
 }
