@@ -29,8 +29,6 @@ void	case_3(t_stack *stack)
 	a = stack->p[stack->top1];
 	b = stack->p[stack->top2];
 	c = stack->p[stack->top2 - 1];
-	if (!check_ascending_order(stack))
-		return ;
 	if (a > b && c > b && c > a)
 		swap(stack, "sa");
 	else if ((a > b && c > b && a > c) || (a > b && b > c))
@@ -42,8 +40,6 @@ void	case_3(t_stack *stack)
 
 void	case_4(t_stack *stack_a, t_stack *stack_b)
 {
-	if (!check_ascending_order(stack_a))
-		return ;
 	take_nbr_to_top(stack_a, "a", get_smallest_nbr(stack_a));
 	push(stack_a, stack_b, "pb");
 	case_3(stack_a);
@@ -52,8 +48,6 @@ void	case_4(t_stack *stack_a, t_stack *stack_b)
 
 void	case_5(t_stack *stack_a, t_stack *stack_b)
 {
-	if (!check_ascending_order(stack_a))
-		return ;
 	take_nbr_to_top(stack_a, "a", get_smallest_nbr(stack_a));
 	push(stack_a, stack_b, "pb");
 	take_nbr_to_top(stack_a, "a", get_smallest_nbr(stack_a));
