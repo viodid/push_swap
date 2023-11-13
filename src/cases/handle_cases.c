@@ -14,6 +14,8 @@
 
 void	handle_cases(t_stack *stack_a, t_stack *stack_b, int length)
 {
+	if (!check_ascending_order(stack_a))
+		return ;
 	if (length <= 2)
 		case_2(stack_a, "ra");
 	else if (length <= 3)
