@@ -25,7 +25,8 @@ void	case_3(t_stack *stack)
 	int	a;
 	int	b;
 	int	c;
-
+	if (!check_ascending_order(stack))
+		return ;
 	a = stack->p[stack->top1];
 	b = stack->p[stack->top2];
 	c = stack->p[stack->top2 - 1];
